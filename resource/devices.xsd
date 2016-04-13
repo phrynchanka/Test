@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.epam.training.by/devices"
+        xmlns:tns="http://www.epam.training.by/devices"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified"
+        >
+    <element name="devices">
+        <complexType>
+            <sequence>
+                <element name="computer"
+                         type="tns:Computer"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Computer">
+        <sequence>
+            <element name="name"
+                     type="tns:NamePattern"/>
+            <element name="origin"
+                     type="tns:NamePattern"/>
+            <element name="price"
+                     type="nonNegativeInteger"/>
+            <element name="type"
+                     type="tns:Type"/>
+            <element name="critical"
+                     type="boolean"/>
+        </sequence>
+        <attribute name="id"
+                   type="tns:ComputerID"
+                   use="required"/>
+    </complexType>
+    <complexType name="Type">
+        <sequence>
+            <element name="peripheral"
+                     type="boolean"/>
+            <element name="power"
+                     type="nonNegativeInteger"/>
+            <element name="hardware"
+                     type="tns:Hardware"/>
+        </sequence>
+    </complexType>
+    <complexType name="Hardware">
+        <sequence>
+            <element name="monitor"
+                     type="boolean"/>
+            <element name="harddisk"
+                     type="boolean"/>
+            <element name="motherboard"
+                     type="boolean"/>
+            <element name="cooling"
+                     type="boolean"/>
+            <element name="mouse"
+                     type="boolean"/>
+            <element name="keyboard"
+                     type="boolean"/>
+            <element name="processor"
+                     type="boolean"/>
+            <element name="videocard"
+                     type="boolean"/>
+            <element name="socket"
+                     type="tns:Socket"/>
+        </sequence>
+    </complexType>
+    <simpleType name="Socket">
+        <restriction base="string">
+            <enumeration value="USB"/>
+            <enumeration value="COM"/>
+            <enumeration value="LPT"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="NamePattern">
+        <restriction base="string">
+            <pattern value="([A-Z]+[a-z]* *[A-Z]*[a-z]*)"/>
+            <maxLength value="20"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ComputerID">
+        <restriction base="ID">
+            <pattern value="([a-z0-9]+)"/>
+        </restriction>
+    </simpleType>
+</schema>
