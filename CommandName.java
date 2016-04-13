@@ -1,0 +1,46 @@
+package by.epam.training.task6.controller.command;
+
+public enum CommandName {
+    //Logic
+    LOGIN,
+    LOGOUT,
+    REGISTRATION,
+    VALIDATE_INPUT_PARAMETERS,
+    VALIDATE_ORDER,
+    PAY_ORDER,
+    RECOUNT_ORDER,
+    FINISH_ORDER,
+    RETURN_CAR,
+    VIEW_ALL_CAR,
+    VIEW_ALL_ORDER_FOR_CLIENT,
+    VIEW_ALL_ORDER,
+    ORDER_CAR
+    ,
+    //Create
+    CREATE,
+    READ,
+    UPDATE,
+    DELETE,
+    CREATE_USER,
+    CREATE_CAR,
+    CREATE_ORDER,
+    CREATE_REGISTER,
+    SHOW_USER,
+    //Read
+    SHOW_CAR,
+    SHOW_ORDER,
+    SHOW_REGISTER,
+    SHOW_ALL_USERS,
+    SHOW_ALL_CARS,
+    SHOW_ALL_ORDERS,
+    //Update
+    UPDATE_USER,
+    UPDATE_CAR,
+    UPDATE_ORDER,
+    UPDATE_REGISTER,
+    //Delete
+    DELETE_USER,
+    DELETE_CAR,
+    DELETE_ORDER,
+    DELETE_REGISTER
+}
